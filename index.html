@@ -1,0 +1,15 @@
+<input type="text" id="texto" placeholder="Ingrese nombre de Pokemon">
+<button type="button" id="buscar">Buscar en pokedex</button>
+<br><img src="" id="pokemon" alt="">
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
+<script>
+    $('#buscar').click(function() {
+        let texto = $('#texto').val();
+        $.get("https://pokeapi.co/api/v2/pokemon/"+texto,
+        function(data) {
+            $('#pokemon').attr('src', data.sprites.front_default)
+        })
+    })
+</script>
